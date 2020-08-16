@@ -17,6 +17,17 @@ app.post('/', (req, res) => {
   res.send("The result is " + result);
 });
 
+app.get('/bmi', (req, res) => {
+  res.sendFile(__dirname + "/bmiCalculator.html");
+});
+
+app.post('/bmi', (req, res) => {
+  var weight = Number(req.body.weight);
+  var height = Number(req.body.height);
+  var bmiScore = weight / (height * height);
+  res.send("The result is " + bmiScore);
+});
+
 app.listen(port, () => {
   console.log(`Practice app listening at http://localhost:${port}`);
 });
