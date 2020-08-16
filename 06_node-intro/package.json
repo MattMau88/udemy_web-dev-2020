@@ -1,0 +1,14 @@
+{
+  "name": "06_node-intro",
+  "version": "1.0.0",
+  "description": "lecture exercise package creation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt",
+  "license": "ISC",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}
