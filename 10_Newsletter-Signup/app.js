@@ -42,6 +42,12 @@ app.post("/", function(req, res) {
   }
 
   const request = https.request(url, options, function(response) {
+    if (response.statusCode === 200) {
+      res.sendFile(__dirname + "/success.html");
+    }
+    else {
+      res.sendFile(__dirname + "/failure.html");
+    };
     response.on("data", function(data) {
       console.log(JSON.parse(data));
     })
@@ -53,7 +59,11 @@ app.post("/", function(req, res) {
   console.log(firstName, lastName, email);
 })
 
-app.listen(port, function() {
+app.post("/failure", function(req, res){
+  res.redirect("/");
+})
+
+app.listen(process.env.PORT || port, function() {
   console.log("Server running on port " + port);
 });
 
