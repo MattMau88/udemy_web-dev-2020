@@ -2,7 +2,7 @@ mkdir project_name
 git init (if needed)
 npm init
 npm i express body-parser
-npm install -g npm
+(npm i ejs)
 
 nodemon app.js
 
