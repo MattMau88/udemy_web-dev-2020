@@ -1,5 +1,10 @@
 mkdir project_name
 git init (if needed)
+git add .
+git commit -m "project starting files"
+hub create
+git push origin master
+
 npm init
 npm i express body-parser
 (npm i ejs)
