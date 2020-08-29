@@ -18,6 +18,11 @@ app.get("/", function(req, res) {
   // res.sendFile(__dirname + "/index.html");
 })
 
+app.get("/", function(req, res) {
+  res.render("home");
+})
+
+
 app.post("/", function(req, res) {
   // console.log("Post received");
 })

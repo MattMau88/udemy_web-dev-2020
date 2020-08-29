@@ -20,3 +20,6 @@ git push origin master
 heroku login
 heroku create
 git push heroku master
+
+/after cloning a project that contains dependencies, e.g. modules that you don't have locally yet
+npm install
