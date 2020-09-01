@@ -23,10 +23,6 @@ npm install
 # run node server locally that automatically updates changes
 nodemon app.js
 
-# deploy app to heroku
-heroku login
-heroku create
-git push heroku master
 
 --
 #setup of secret var, keys, passwords
@@ -39,14 +35,43 @@ touch .env
 touch .gitignore
 # add ".env" to .gitignore file
 
-#Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
-#DB_HOST=localhost
-#DB_USER=root
-#DB_PASS=s1mpl3
+# Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
+  DB_HOST=localhost
+  DB_USER=root
+  DB_PASS=s1mpl3
 
 # use in app.js as variables, e.g.:
-# process.env.DB_HOST
+  process.env.DB_HOST
 
 # when git add . -> check that .env is not included
 --
 
+--
+# deploy app to heroku
+heroku login
+heroku create
+touch Procfile
+# add to Procfile: web: node app.js
+# listen to right port -> in app.js
+  let port = process.env.PORT;
+  if (port == null || port == "") {
+    port = 8000;
+  }
+  app.listen(port, function() {
+    console.log("Server started succesfully");
+  });
+# specify version of node in package.json (check with "node --version"), above "dependincies"
+  "engines": {
+    "node": "14.2.0"
+  },
+# create new or update .gitignore file
+touch .gitignore
+# add into .gitignore:
+  touch .gitignore
+  /node_modules
+  npm-debug.log
+  .DS_Store
+  /*.env
+
+git push heroku master
+--
