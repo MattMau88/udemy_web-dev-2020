@@ -47,9 +47,9 @@ touch .gitignore
 --
 
 --
-# deploy app to heroku
+# deploy app to heroku, optionally with name
 heroku login
-heroku create
+heroku create <app-name>
 touch Procfile
 # add to Procfile: web: node app.js
 # listen to right port -> in app.js
