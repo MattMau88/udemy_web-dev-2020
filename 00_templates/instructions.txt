@@ -1,25 +1,52 @@
+# create folder
 mkdir project_name
+
+# initialize git
 git init (if needed)
 git add .
 git commit -m "project starting files"
+
+# add remote depository on github (attn: public repo created)
 hub create
 git push origin master
 
+# node setup
 npm init
-npm i express body-parser
-(npm i ejs)
 
+#add and install node modules -> need to require in app.js
+npm i express body-parser
+
+# if code files copied from somewhere (cloned project), check package.json for dependencies
+# need to install node modules locally
+npm install
+
+# run node server locally that automatically updates changes
 nodemon app.js
 
-git add .
-git commit -m "first commit"
-
-hub create
-git push origin master
-
+# deploy app to heroku
 heroku login
 heroku create
 git push heroku master
 
-/after cloning a project that contains dependencies, e.g. modules that you don't have locally yet
-npm install
+--
+#setup of secret var, keys, passwords
+
+npm install dotenv
+
+# in main app.js: require('dotenv').config()
+
+touch .env
+touch .gitignore
+# add ".env" to .gitignore file
+
+#Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
+#DB_HOST=localhost
+#DB_USER=root
+#DB_PASS=s1mpl3
+
+# use in app.js as variables, e.g.:
+# process.env.DB_HOST
+
+# when git add . -> check that .env is not included
+--
+
