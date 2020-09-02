@@ -48,6 +48,7 @@ touch .gitignore
 
 --
 # deploy app to heroku, optionally with name
+# https://devcenter.heroku.com/articles/getting-started-with-nodejs#prepare-the-app
 heroku login
 heroku create <app-name>
 touch Procfile
@@ -74,4 +75,10 @@ touch .gitignore
   /*.env
 
 git push heroku master
+
+# manually set config varibales in .env that are not pushed to heroku, e.g.:
+heroku config:set DB_CLUSTER=cluster0
 --
+
+# access cloud DB from terminal...
+https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/
