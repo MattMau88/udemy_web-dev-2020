@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 // const https = require('https');
 // const request = require("request");
+// const mongoose = require('mongoose');
 
 const app = express();
 const port = 3000;
@@ -12,6 +13,9 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+
+// new DB setup
+//mongoose.connect('mongodb://localhost:27017/<db-name>', {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.get("/", function(req, res) {
   res.send("Hello");
