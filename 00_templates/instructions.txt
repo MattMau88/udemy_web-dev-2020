@@ -29,7 +29,7 @@ nodemon app.js
 
 npm install dotenv
 
-# in main app.js: require('dotenv').config()
+# in main app.js: const dotenv = require('dotenv').config();
 
 touch .env
 touch .gitignore
